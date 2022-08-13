@@ -1,28 +1,28 @@
-function biggerNum(num1, num2) {
-	if (num1 > num2) {
-		return num1;
+function preferNum(num1, num2, criteria = 'bigger') {
+	if (criteria === 'bigger') {
+		return Math.max(num1, num2);
 	}
-	return num2;
+	return Math.min(num1, num2);
 }
 
 function multiplyBiggerNumByTwo(num1, num2) {
-	return biggerNum(num1, num2) * 2;
+	return preferNum(num1, num2) * 2;
 }
 
 function divideBiggerNumByThree(num1, num2) {
-	return biggerNum(num1, num2) / 3;
+	return preferNum(num1, num2) / 3;
 }
 
 function eatMostTacos(sum1, sum2) {
-	return `I ate ${biggerNum(sum1, sum2)} tacos.`;
+	return `I ate ${preferNum(sum1, sum2)} tacos.`;
 }
 
 function adoptSmallerDog(weight1, weight2) {
-	let smallDog = weight1;
-	if (smallDog == biggerNum(weight1, weight2)) {
-		smallDog = weight2;
-	}
-	return `I adopted a dog that weighs ${smallDog} pounds.`;
+	return `I adopted a dog that weighs ${preferNum(
+		weight1,
+		weight2,
+		'smaller'
+	)} pounds.`;
 }
 
 /**************************************************************************/
